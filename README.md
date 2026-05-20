@@ -40,3 +40,5 @@ Here are the primary projects in the **Nori.sln**:
   generate coverage data for this tool to use). 
 
 The **Demos** folder contains a few demo applications for Nori. 
+
+- Updated May 2026

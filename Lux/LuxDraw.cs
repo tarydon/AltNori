@@ -601,43 +601,5 @@ public static partial class Lux {
       }
       return x;
    }
-
-   // Given some text, converts that to cells for use by the Text3DShader. 
-   // This starts off using the basic GetTextCells routine (used by TextPx) and then adjusting the
-   // cells for alignment and offset
-   static void GetText3DCells (ReadOnlySpan<char> text, Vec3F pos, ETextAlign align, Vec2S offset, Span<Text3DShader.Args> output) {
-      // First, get the basic cells as we would for a TextPx shader, assuming the text
-      // is starting at a position of (0,0)
-      var face = TypeFace ?? TypeFace.Default;
-      Span<TextPxShader.Args> cells = stackalloc TextPxShader.Args[text.Length];
-      int x = GetTextCells (text, new (offset.X, -offset.Y), cells);
-
-      // If we are going to draw the text with a 'BaseLeft' alignment, then the cells
-      // we obtained are already correct (since the transformed coordinates of the _pos_
-      // parameter from above will get added to each cell position). However, if we want
-      // other alignments like TopRight or MidCenter, we need to adjust all these cells.
-      // Let's compute the dx and dy for that adjustment here:
-      var cellM = face.Measure ("M", true);
-      short dx = 0, dy = 0, nAlign = (short)(align - 1);
-
-      // First compute the dx needed based on the horizontal alignment (left alignment
-      // is the default value of 0 in the case below)
-      switch (nAlign % 3) {
-         case 1: dx = (short)(-x / 2); break;   // 'Mid' alignment (shift left by half the width)
-         case 2: dx = (short)-x; break;         // 'Right' alignment (shift left by the width)
-      }
-      // Then, compute the dy needed based on the vertical alignment (base alignment is the
-      // default value of 3 in the case below)
-      switch (nAlign / 3) {
-         case 0: dy = (short)(-cellM.Top); break;        // Top alignment
-         case 1: dy = (short)(-cellM.Top / 2); break;    // Center alignment
-         case 2: dy = (short)(-face.Descender); break;   // Bottom alignment (based on face bounding box)
-      }
-      for (int i = 0; i < cells.Length; i++) {
-         ref TextPxShader.Args input = ref cells[i];
-         var v = input.Cell;
-         output[i] = new (pos, new (v.X + dx, v.Y + dy, v.Z + dx, v.W + dy), input.TexOffset);
-      }
-   }
 }
 #endregion

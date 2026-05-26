@@ -1,5 +1,7 @@
 # Nori
 
+Extending the tools from Flux
+
 ## What is Nori?
 A simple, low-fuss, lightweight foundation for building 2D and 3D geometry and engineering 
 applications. The goal is to eventually include all of these:

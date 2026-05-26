@@ -15,7 +15,7 @@ public partial class MainWindow : Window {
    public MainWindow () {
       FontSize = 13;
       InitializeComponent ();
-      mIni = new IniFile (Lib.GetLocalFile ("Nori.Cover.ini"), "Basic");
+      mIni = new IniFile (Lib.GetLocalFile ("Nori.Cover.ini"), "Extended");
       LoadCoverage ();
    }
 

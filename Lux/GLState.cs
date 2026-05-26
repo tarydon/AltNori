@@ -13,14 +13,15 @@ namespace Nori;
 /// used primarily by the Lux draw classes.
 static class GLState {
    // Properties ---------------------------------------------------------------
-   /// <summary>Is Blending now enable (default = false)</summary>
+   /// <summary>Is Blending now enable (default = true)</summary>
    public static bool Blending {
       set {
          if (Lib.Set (ref mBlending, value))
             GL.Enable (ECap.Blend, value);
       }
    }
-   static bool mBlending;
+   // Set default state of blending to true
+   static bool mBlending = true;
 
    /// <summary>Is depth-testing now enable (default = false)</summary>
    public static bool DepthTest {

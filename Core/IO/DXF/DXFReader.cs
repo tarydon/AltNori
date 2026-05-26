@@ -21,8 +21,9 @@ public class DXFReader {
    string? mFilename;
 
    // Properties ---------------------------------------------------------------
-   /// <summary>Darken all layer colors (to have a luminance of no more than 160)</summary>
+   /// <summary>Darken all layer colors (better for the white-background we use)</summary>
    public bool DarkenColors;
+   // (NOTE: This is settable in config.ini)
 
    /// <summary>If set, all dimension entities are moved to the "Dimension" layer</summary>
    public bool RelayerDimensions;

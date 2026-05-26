@@ -22,8 +22,10 @@ public class DXFReader {
 
    // Properties ---------------------------------------------------------------
    /// <summary>Darken all layer colors (better for the white-background we use)</summary>
-   public bool DarkenColors;
+   public bool DarkenColors = true;
    // (NOTE: This is settable in config.ini)
+
+   public bool LightenColors = false;
 
    /// <summary>If set, all dimension entities are moved to the "Dimension" layer</summary>
    public bool RelayerDimensions;

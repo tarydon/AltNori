@@ -22,7 +22,8 @@ public class DXFReader {
 
    // Properties ---------------------------------------------------------------
    /// <summary>Darken all layer colors (to have a luminance of no more than 160)</summary>
-   public bool DarkenColors;
+   public bool DarkenColors = true;
+   public bool LightenColors = false;
 
    /// <summary>If set, all dimension entities are moved to the "Dimension" layer</summary>
    public bool RelayerDimensions;

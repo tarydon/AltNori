@@ -41,6 +41,6 @@ Here are the primary projects in the **Nori.sln**:
 - **Nori.Cover**: Coverage viewer for Nori code (use `Nori.Con coverage` to 
   generate coverage data for this tool to use). 
 
-The **Demos** folder contains a few demo applications for Nori. 
-
-- Updated May 2026
+The **Demos** folder contains a few demo applications for Nori. You are free to
+experiment with these and please add any interesting demos you write into them too.
+Contributors welcome.
